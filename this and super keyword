@@ -1,0 +1,31 @@
+public class Main {
+
+    public static void main(String[] args) {
+        Cuboid c=new Cuboid(10,20,30);
+    }
+}
+    class Rectangle{
+        int l;
+        int b;
+        int x=10;
+        Rectangle(){
+        l=1;
+        b=1;
+    }
+    Rectangle(int l,int b){
+        this.l=l;
+        this.b=b;
+    }
+}
+    class Cuboid extends Rectangle {
+        int h;
+        int x = 20;
+
+        Cuboid(int l, int b, int h) {
+            this.l = l;
+            this.b = b;
+            this.h = h;
+            System.out.println(super.x);
+            System.out.println(x);
+        }
+    }
