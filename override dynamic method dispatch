@@ -19,3 +19,30 @@ public class Main {
             System.out.println("Sub Class");
         }
     }
+//next problem Runtime Polymorphism
+package com.oops;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Super su = new Sub();
+        su.meth1();
+        su.meth2();
+    }
+}
+    class Super{
+        void meth1(){
+            System.out.println("meth 1");
+        }void meth2(){
+            System.out.println("meth 2 Super");
+        }
+                }
+    class Sub extends Super{
+        @Override
+        void meth2(){
+            System.out.println("meth 2 Sub");
+        }void meth3(){
+            System.out.println("meth 3 Sub");
+        }
+    }
