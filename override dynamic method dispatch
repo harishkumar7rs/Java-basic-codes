@@ -1,0 +1,21 @@
+package com.oops;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Super su = new Sub();
+        su.display();
+    }
+}
+    class Super{
+        public void display(){
+            System.out.println("Super Class");
+        }
+    }
+    class Sub extends Super{
+        @Override
+        public  void display(){
+            System.out.println("Sub Class");
+        }
+    }
