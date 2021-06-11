@@ -1,0 +1,39 @@
+package com.oops;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Shape rectangle = new Rectangle(10,20);
+        Circle circle=new Circle(20);
+        System.out.println("Area of Rectangle = "+rectangle.area());
+        System.out.println("Perimeter of Circle = "+circle.perimeter());
+    }
+}
+    abstract class Shape{
+        abstract public double perimeter();
+        abstract public double area();
+    }
+    class Circle extends Shape{
+        Circle(int radius){this.radius=radius;}
+        double radius;
+        @Override
+        public double perimeter(){
+            return 2*Math.PI*radius;
+        }
+        @Override
+        public double area(){
+            return Math.PI*radius*radius;
+        }
+    }
+    class Rectangle extends Shape{
+        Rectangle(double length,double breadth){this.breadth=breadth;this.length=length;}
+        double length;
+        double breadth;
+        public double perimeter(){
+            return 2*(length+breadth);
+        }
+        public double area(){
+            return length*breadth;
+        }
+    }
