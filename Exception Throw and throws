@@ -1,0 +1,29 @@
+package com.Exception;
+
+public class Main {
+
+    public static void main(String[] args) {
+        try{
+            meth1();
+        }
+        catch (NegativeException e){
+            System.out.println(e);
+        }
+    }
+
+    static void meth1() throws NegativeException  {
+        System.out.println("Area is "+ meth2(-5,20));
+        }
+
+    static public double meth2(int l,int b) throws NegativeException {
+        if (l<0||b<0){
+            throw new NegativeException();
+        }
+        return l*b;
+    }
+}
+class NegativeException extends Exception{
+    public String toString(){
+        return "Dimensions cannot be negative";
+    }
+}
