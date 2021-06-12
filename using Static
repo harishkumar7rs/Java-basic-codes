@@ -1,0 +1,29 @@
+package com.oops;
+
+
+import java.util.Date;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Student student=new Student();
+        System.out.println(student.getrollNo());
+            }
+}
+class Student {
+    private String rollno;
+    static private int count = 5501;
+    public Student(){
+        rollno=getRollNo();
+    }
+
+    private String getRollNo() {
+        Date date=new Date();
+        String rollno= "CEG."+ (date.getYear()+1900)+ count;
+        count++;
+        return rollno;
+    }
+    public String getrollNo(){
+        return rollno;
+    }
+}
