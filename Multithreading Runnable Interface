@@ -1,0 +1,23 @@
+package com.Exception;
+
+
+class Sample implements Runnable{
+    public static void main(String[] args) {
+
+        Sample m = new Sample();
+        Thread t=new Thread(m);
+        t.start();
+        int i = 1;
+        while (true) {
+            System.out.println("World");
+            i++;
+        }
+    }
+    public void run(){
+        int i=1;
+        while(true){
+            System.out.println("Hello");
+            i++;
+        }
+    }
+}
