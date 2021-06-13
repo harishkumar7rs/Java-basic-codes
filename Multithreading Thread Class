@@ -1,0 +1,44 @@
+package com.Exception;
+
+
+class MyThread extends Thread{
+    public static void main(String[] args) {
+        MyThread m = new MyThread();
+        m.start();
+        int i = 1;
+        while (true) {
+            System.out.println("World");
+            i++;
+        }
+    }
+    public void run(){
+        int i=1;
+        while(true){
+            System.out.println("Hello");
+            i++;
+        }
+    }
+}
+//SEPERATE CLASS
+package com.Exception;
+class Main{
+  public static void main(String[] args) {
+        MyThread m = new MyThread();
+        m.start();
+        int i = 1;
+        while (true) {
+            System.out.println("World");
+            i++;
+        }
+    }
+    }
+class MyThread extends Thread{
+   
+    public void run(){
+        int i=1;
+        while(true){
+            System.out.println("Hello");
+            i++;
+        }
+    }
+}
