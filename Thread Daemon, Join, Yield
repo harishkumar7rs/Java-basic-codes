@@ -1,0 +1,98 @@
+//main thread is terminating then daemon thread also get terminated. 
+//DAEMON 
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyThread tt= new MyThread("Thread 1");
+
+        tt.setDaemon(true);
+        tt.start();
+
+        try {
+            MyThread.sleep(100);
+        }
+        catch (Exception e){}
+
+
+    }
+}
+class MyThread extends Thread{
+    public MyThread(String name){
+        super(name);
+        setPriority(MyThread.MIN_PRIORITY+3);
+
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            System.out.println(count++);
+            }
+        }
+    }
+ //JOIN
+ package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        MyThread tt= new MyThread("Thread 1");
+
+        tt.setDaemon(true);
+        tt.start();
+        Thread mainThread = Thread.currentThread();
+        mainThread.join();
+
+
+    }
+}
+class MyThread extends Thread{
+    public MyThread(String name){
+        super(name);
+        setPriority(MyThread.MIN_PRIORITY+3);
+
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            System.out.println(count++);
+            }
+        }
+    }
+
+//YIELD 
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        MyThread tt= new MyThread("Thread 1");
+
+        tt.start();
+        int count=0;
+        while (true){
+            System.out.println(count++ +"Main" );
+            Thread.yield();
+
+        }
+
+
+    }
+}
+class MyThread extends Thread{
+    public MyThread(String name){
+        super(name);
+        setPriority(MyThread.MIN_PRIORITY+3);
+
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            System.out.println(count++ + "MyThread ");
+            }
+        }
+    }
+
+
+
