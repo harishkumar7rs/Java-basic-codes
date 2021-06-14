@@ -1,0 +1,50 @@
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyThread tt= new MyThread("My name");
+    }
+}
+class MyThread extends Thread{
+    public MyThread(String name){
+        super(name);
+    }
+    public void run(){
+    }
+}
+//METHODS
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyThread tt= new MyThread("Thread 1");
+        System.out.println(tt.getName());
+        System.out.println(tt.getId());
+        System.out.println(tt.getPriority());
+        tt.start();
+        System.out.println(tt.getState());
+        tt.interrupt();
+
+    }
+}
+class MyThread extends Thread{
+    public MyThread(String name){
+        super(name);
+        setPriority(MyThread.MIN_PRIORITY+3);
+
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            System.out.println(count++);
+            try {
+                MyThread.sleep(100);
+            }
+            catch (InterruptedException e){
+                System.out.println(e);
+            }
+        }
+    }
+}
