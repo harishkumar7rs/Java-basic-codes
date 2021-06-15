@@ -1,0 +1,25 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        try {
+            FileOutputStream fos = new FileOutputStream("D:/Java/Test.txt");
+            String str="Harish is Java Developer";
+            /*fos.write(str.getBytes());
+            fos.close();*/
+            /*byte b[]=str.getBytes();
+            for (byte x :b) {
+                fos.write(x);
+            }/*
+             */
+            byte b[]=str.getBytes();
+            fos.write(b,10,str.length()-10);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
