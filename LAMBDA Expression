@@ -1,0 +1,21 @@
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyLambda m=()->{  //Lambda expression
+            System.out.println("HI");
+        };
+        /*MyLambda m = new MyLambda() {
+            @Override
+            public void display() {
+                    System.out.println("Hi");
+                }
+                };
+        m.display();*/
+
+    }
+}
+interface MyLambda{
+    void display();
+}
