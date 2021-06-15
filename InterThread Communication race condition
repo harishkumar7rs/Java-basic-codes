@@ -1,0 +1,62 @@
+package com.multithreading;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        MyData data =new MyData();
+        Producer producer=new Producer(data);
+        Consumer consumer=new Consumer(data);
+        producer.start();
+        consumer.start();
+    }
+}
+class MyData {
+     int value=0;
+    boolean flag=true;
+    synchronized void setData(int x){
+        while(flag!=true){
+            try { wait(); }catch (Exception e){}
+        }
+        value=x;
+        flag=false;
+            notify();
+    }
+    synchronized int getData(){
+        int x=0;
+        while (flag!=false){
+            try {wait();}catch (Exception e){}
+        }
+        x=value;
+        flag=true;
+            notify();
+        return x;
+    }
+}
+class Producer extends Thread{
+    MyData data;
+    public Producer(MyData d){
+        data=d;
+
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            data.setData(count);
+            System.out.println("Producer "+ count);
+            count++;
+    }
+}}
+class Consumer extends Thread{
+    MyData data;
+    public Consumer(MyData d){
+        data=d;
+    }
+    public void run(){
+        int count=0;
+        while (true){
+            System.out.println("Consumer"+data.getData());
+        }
+    }
+
+}
+
