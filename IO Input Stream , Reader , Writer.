@@ -1,0 +1,45 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        try {
+            FileWriter fw=new FileWriter("D:/Java/Test1.txt");
+            String str="harish kumar";
+            fw.write(str);//fw.write("harish kumar");
+            fw.close();
+            //Using File Reader
+            /*FileReader fis=new FileReader("D:/Java/Test.txt");
+            int x;
+            while((x= fis.read())!=-1){
+                System.out.print((char) x);
+            }*/
+
+            //FileInputStream fis = new FileInputStream("D:/Java/Test.txt");
+
+            //using while
+            /*int x;
+            while ((x=(fis.read()))!=-1){
+                System.out.print((char)x);
+            }*/
+
+            //using dowhile
+            /*int x;
+            do{
+                x= fis.read();
+            if(x!=-1)
+                System.out.print((char)x);
+            }while (x!=-1);*/
+
+            /*byte b[] =new byte[fis.available()];
+            fis.read(b);
+            String str=new String(b);
+            System.out.println(str);*/
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
